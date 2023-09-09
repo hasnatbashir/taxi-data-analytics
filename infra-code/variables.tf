@@ -1,17 +1,11 @@
-variable "ami_name" {
-    type = string
-    default = "amazon_linux"
-}
-variable "ami_id" {
-    type = string
-    default = "ami-0cf0e376c672104d6"
-}
-variable "ami_key_pair_name" {
-    type = string
-    default = "deployer-key"
+variable "region" {
+  description = "AWS Region"
+  type        = string
+  default     = "us-east-2"
 }
 
-variable "bucket_name" {
-    type = string
-    default = "taxi-data-bucket"
+variable "ssh_key_pair_name" {
+  description = "SSH Key-pair name"
+  type        = string
+  default     = "deployer-key"
 }
