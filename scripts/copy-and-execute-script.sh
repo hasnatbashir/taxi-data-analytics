@@ -10,6 +10,3 @@ rm ~/.ssh/known_hosts
 ls ~/.ssh
 scp -i "$2" $1 ec2-user@$parsed_value:~/
 ssh -i "$2" ec2-user@$parsed_value "bash /home/ec2-user/aws-partial-download.sh"
-
-# /mnt/c/users/hasna/repos/explore-data/infra-code/aws-partial-download.sh
-# ~/.ssh/id_rsa
