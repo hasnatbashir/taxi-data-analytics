@@ -10,3 +10,8 @@ variable "ami_key_pair_name" {
     type = string
     default = "deployer-key"
 }
+
+variable "bucket_name" {
+    type = string
+    default = "taxi-data-bucket"
+}

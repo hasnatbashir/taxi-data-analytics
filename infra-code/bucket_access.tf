@@ -1,3 +1,11 @@
+resource "aws_s3_bucket_public_access_block" "taxi_data_bucket_access" {
+  bucket = aws_s3_bucket.taxi-test-data-bucket.id
+
+  block_public_acls   = true
+  block_public_policy = true
+  ignore_public_acls  = true
+}
+
 resource "aws_iam_role" "s3_role" {
   name = "S3AccessRole"
 
@@ -17,7 +25,7 @@ resource "aws_iam_role" "s3_role" {
 
 resource "aws_iam_policy" "s3_full_access" {
   name        = "S3FullAccess"
-  description = "My policy that grants full access to a specific S3 bucket"
+  description = "Policy that grants full access to a specific S3 bucket"
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -25,7 +33,7 @@ resource "aws_iam_policy" "s3_full_access" {
       {
         Action   = ["s3:*"],
         Effect   = "Allow",
-        Resource = "arn:aws:s3:::taxi-data-bucket/*"
+        Resource = "arn:aws:s3:::${var.bucket_name}/*"
       }
     ]
   })
