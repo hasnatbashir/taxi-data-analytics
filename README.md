@@ -9,7 +9,7 @@ This is a demo project to explore aws and spark.
 To create ec2 instance and bucket on aws for data extraction and execute download data script
 
 ```
-cd infra-code
+cd ingestion-infra
 bash ../Scripts/copy-and-execute-script.sh <ssh-key-pem-file-path> <download-data-script-path>
 ```
 
